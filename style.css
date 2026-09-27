@@ -1,0 +1,407 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffb6c1;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+/* ================================= */
+/* MÀN HÌNH CHÍNH */
+/* ================================= */
+
+.container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* ================================= */
+/* ẢNH CUTE */
+/* ================================= */
+
+.cute-image {
+    width: 160px;
+    height: 160px;
+
+    background: white;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.08);
+}
+
+.cute-image img {
+    width: 110px;
+    height: 110px;
+
+    object-fit: contain;
+}
+
+
+/* ================================= */
+/* CÂU HỎI */
+/* ================================= */
+
+h1 {
+    font-size: 21px;
+
+    color: #111;
+
+    margin-bottom: 13px;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* ================================= */
+/* MESSAGE */
+/* ================================= */
+
+#message {
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: #d32f2f;
+
+    margin-bottom: 18px;
+
+    min-height: 22px;
+
+    position: relative;
+    z-index: 10;
+
+    transition: 0.2s;
+}
+
+
+/* ================================= */
+/* BUTTONS */
+/* ================================= */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    min-height: 90px;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+button {
+    border: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease,
+        filter 0.2s ease;
+
+    transform-origin: center;
+}
+
+
+#yesBtn {
+    width: 85px;
+    height: 50px;
+
+    background: #00a000;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 4px 8px
+        rgba(0, 0, 0, 0.12);
+
+    transform:
+        translate(0, 0)
+        scale(1);
+
+    position: relative;
+    z-index: 6;
+}
+
+
+#noBtn {
+    width: 70px;
+    height: 50px;
+
+    background: #f01818;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 4px 8px
+        rgba(0, 0, 0, 0.12);
+
+    transform: scale(1);
+
+    position: relative;
+    z-index: 5;
+}
+
+
+button:hover {
+    filter: brightness(1.08);
+}
+
+
+/* ================================= */
+/* MÀN HÌNH SAU KHI YES */
+/* ================================= */
+
+.success-screen {
+    position: fixed;
+
+    inset: 0;
+
+    background: #ffb6c1;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 20;
+
+    overflow: hidden;
+}
+
+
+.success-screen.show {
+    display: flex;
+
+    animation: appear 0.7s ease;
+}
+
+
+/* ================================= */
+/* ẢNH SUCCESS */
+/* ================================= */
+
+.success-image {
+    width: 160px;
+    height: 160px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 22px;
+
+    position: relative;
+
+    z-index: 40;
+}
+
+
+.success-image img {
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+}
+
+
+/* ================================= */
+/* CHỮ SUCCESS */
+/* ================================= */
+
+.success-screen h2 {
+    font-size: 27px;
+
+    line-height: 1.25;
+
+    color: #111;
+
+    margin-bottom: 12px;
+
+    position: relative;
+
+    z-index: 40;
+
+    animation:
+        textAppear 0.8s ease;
+}
+
+
+.success-text {
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    font-weight: bold;
+
+    color: #222;
+
+    position: relative;
+
+    z-index: 40;
+
+    animation:
+        textAppear 1s ease;
+}
+
+
+/* ================================= */
+/* CƠN MƯA TRÁI TIM */
+/* ================================= */
+
+.heart {
+    position: fixed;
+
+    top: -40px;
+    left: 0;
+
+    pointer-events: none;
+
+    z-index: 30;
+
+    opacity: 0.9;
+
+    animation: heartRain linear forwards;
+}
+
+
+@keyframes heartRain {
+
+    0% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.9;
+    }
+
+    75% {
+        opacity: 0.9;
+    }
+
+    /* Bắt đầu mờ dần */
+
+    88% {
+        opacity: 0.65;
+    }
+
+    96% {
+        opacity: 0.2;
+    }
+
+    /* Gần chạm đáy thì biến mất */
+
+    100% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+
+/* ================================= */
+/* ANIMATION */
+/* ================================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 19px;
+    }
+
+    .cute-image,
+    .success-image {
+        width: 145px;
+        height: 145px;
+    }
+
+    .success-screen h2 {
+        font-size: 23px;
+    }
+
+    .success-text {
+        font-size: 14px;
+
+        padding: 0 20px;
+    }
+}
